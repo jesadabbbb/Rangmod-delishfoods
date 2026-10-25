@@ -1,0 +1,6 @@
+{
+  "name": "Rong Mod - Colony Work Tracking",
+  "description": "Enterprise work tracking and colony governance platform with role switching, task kanban/list/calendar views, task review, and approval flow.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

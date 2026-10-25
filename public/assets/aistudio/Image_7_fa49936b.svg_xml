@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <rect width="100%" height="100%" fill="#143e20"/>
+  <g transform="translate(60, 55)">
+    <!-- Delish Text -->
+    <text x="0" y="80" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="76" font-weight="300" fill="#ffffff" letter-spacing="-0.5px">Delish</text>
+    <!-- Leaf accent on the 'i' in Delish -->
+    <path d="M 197 18 C 197 5, 212 2, 222 2 C 223 14, 214 28, 203 26 C 200 24, 198 21, 197 18 Z" fill="#4ade80"/>
+    <path d="M 208 19 C 213 14, 226 12, 235 15 C 234 23, 224 33, 216 29 C 213 26, 210 22, 208 19 Z" fill="#22c55e"/>
+    <!-- Foods Text -->
+    <text x="0" y="165" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="76" font-weight="300" fill="#ffffff" letter-spacing="-0.5px">Foods</text>
+  </g>
+</svg>

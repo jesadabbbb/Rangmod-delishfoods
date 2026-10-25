@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', 'Noto Sans Thai', system-ui, -apple-system, sans-serif;
+  --color-surface: #f4fbf4;
+  --color-surface-dim: #d5dcd5;
+  --color-surface-bright: #f4fbf4;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eff5ef;
+  --color-surface-container: #e9f0e9;
+  --color-surface-container-high: #e3eae3;
+  --color-surface-container-highest: #dde4de;
+  --color-on-surface: #161d19;
+  --color-on-surface-variant: #414941;
+  --color-outline: #717970;
+  --color-outline-variant: #c1c9be;
+  --color-primary: #194d28;
+  --color-primary-container: #194d28;
+  --color-on-primary: #ffffff;
+  --color-primary-fixed: #b8f0bd;
+  --color-primary-fixed-dim: #9cd4a3;
+  --color-on-primary-fixed: #00210a;
+  --color-on-primary-fixed-variant: #1d502b;
+  --color-secondary: #7b581a;
+  --color-secondary-container: #fdcc83;
+  --color-on-secondary-container: #785517;
+  --color-tertiary: #003515;
+  --color-tertiary-container: #034e23;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #f4fbf4;
+  color: #161d19;
+}
+
+/* Material Symbols font configuration */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c1c9be;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #717970;
+}

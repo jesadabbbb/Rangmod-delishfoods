@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+
+<html lang="th"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><title>รังมด (Rong Mod) - Enterprise Work Tracking</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "surface": "#f4fbf4",
+          "on-tertiary-fixed": "#00210b",
+          "inverse-on-surface": "#ecf2ec",
+          "on-secondary-fixed-variant": "#614002",
+          "primary-container": "#194d28",
+          "on-error-container": "#93000a",
+          "primary-fixed-dim": "#9cd4a3",
+          "on-error": "#ffffff",
+          "surface-dim": "#d5dcd5",
+          "background": "#f4fbf4",
+          "surface-container-low": "#eff5ef",
+          "on-secondary": "#ffffff",
+          "tertiary-fixed-dim": "#92d69d",
+          "outline-variant": "#c1c9be",
+          "on-primary-fixed": "#00210a",
+          "tertiary": "#003515",
+          "secondary": "#7b581a",
+          "inverse-primary": "#9cd4a3",
+          "surface-bright": "#f4fbf4",
+          "on-surface-variant": "#414941",
+          "on-tertiary": "#ffffff",
+          "tertiary-fixed": "#adf3b8",
+          "on-surface": "#161d19",
+          "surface-tint": "#194d28",
+          "on-primary-fixed-variant": "#1d502b",
+          "surface-variant": "#dde4de",
+          "surface-container": "#e9f0e9",
+          "on-tertiary-fixed-variant": "#0a5226",
+          "tertiary-container": "#034e23",
+          "primary-fixed": "#b8f0bd",
+          "on-secondary-fixed": "#281800",
+          "on-primary-container": "#ffffff",
+          "surface-container-highest": "#dde4de",
+          "inverse-surface": "#2b322e",
+          "on-secondary-container": "#785517",
+          "outline": "#717970",
+          "secondary-fixed": "#ffddaf",
+          "surface-container-lowest": "#ffffff",
+          "error": "#ba1a1a",
+          "primary": "#194d28",
+          "secondary-fixed-dim": "#eebf77",
+          "error-container": "#ffdad6",
+          "surface-container-high": "#e3eae3",
+          "on-background": "#161d19",
+          "on-tertiary-container": "#7cbf88",
+          "on-primary": "#ffffff",
+          "secondary-container": "#fdcc83"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-sm": "0.5rem",
+          "space-xs": "0.25rem",
+          "space-xl": "2.5rem",
+          "margin-mobile": "1rem",
+          "gutter-mobile": "0.75rem",
+          "space-lg": "1.5rem",
+          "gutter": "1.5rem",
+          "margin": "2rem",
+          "space-md": "1rem"
+        },
+        "fontFamily": {
+          "headline-xl": ["Plus Jakarta Sans"],
+          "body-sm": ["Plus Jakarta Sans"],
+          "label-lg": ["Plus Jakarta Sans"],
+          "label-sm": ["Plus Jakarta Sans"],
+          "body-lg": ["Plus Jakarta Sans"],
+          "display-lg-mobile": ["Plus Jakarta Sans"],
+          "headline-md": ["Plus Jakarta Sans"],
+          "label-md": ["Plus Jakarta Sans"],
+          "headline-sm": ["Plus Jakarta Sans"],
+          "headline-lg": ["Plus Jakarta Sans"],
+          "display-lg": ["Plus Jakarta Sans"],
+          "body-md": ["Plus Jakarta Sans"],
+          "headline-xl-mobile": ["Plus Jakarta Sans"]
+        },
+        "fontSize": {
+          "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+          "body-sm": ["12px", {"lineHeight": "18px", "fontWeight": "400"}],
+          "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+          "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500"}],
+          "body-lg": ["16px", {"lineHeight": "26px", "fontWeight": "400"}],
+          "display-lg-mobile": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+          "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+          "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+          "headline-sm": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+          "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+          "display-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+          "body-md": ["14px", {"lineHeight": "22px", "fontWeight": "400"}],
+          "headline-xl-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+        }
+      }
+    }
+  };
+</script></head><body class="bg-background font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between py-space-md"><div class="flex flex-col h-full overflow-hidden"><div class="flex items-center justify-between px-space-md pb-space-md"><div class="flex items-center gap-space-sm"><div class="p-space-xs rounded-xl bg-surface-container-lowest shadow-[0_1px_2px_rgba(0,33,10,0.04)] flex items-center justify-center"><img alt="Rong Mod Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDic2PTxCuBs_fkRTtWwsD2wOHS4NAEUItaDq31ew53qPPFz00ez8sQMi7_WOdxEl3Xiy7voCOqoe4xNOeIt-TzrLP0M9Ai4aYxsRPAwSyjwm9Q80CbrLGcaYtYaqZCPm3IuXVIGYK6A8E62w44Y1dJBDmZ_7s3GeZjV_GKt6i4ri9HzONrq4hZvaji8805hNA45E7Zp_XK5o3py3ZNpVOxfw76vDDnTu-Sx95m5C9c4U6A3vPQedWLBw"/></div><div><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">รังมด</span><span class="px-space-xs py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">Colony Core</span></div><p class="font-body-sm text-body-sm text-on-surface-variant truncate max-w-[150px]">ทุกงานมีเจ้าของ</p></div></div><button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">keyboard_double_arrow_left</span></button></div><div class="px-space-md pb-space-sm"><div class="p-space-sm rounded-xl bg-surface-container-lowest shadow-[0_1px_2px_rgba(0,33,10,0.04)] flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[18px]">hive</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Operational Hub</span></div><span class="inline-flex items-center px-1.5 py-0.5 rounded-full font-label-sm text-label-sm bg-primary/10 text-primary font-bold">Live</span></div></div><div class="flex-1 overflow-y-auto px-space-sm space-y-space-xs"><div class="px-space-sm pt-space-xs pb-1"><span class="font-label-sm text-label-sm text-on-surface-variant font-medium uppercase tracking-wider">หลักการทำงาน</span></div><nav class="space-y-1" data-active-classes="bg-primary text-on-primary font-label-lg shadow-[0_1px_2px_rgba(0,33,10,0.08)]"><a class="flex items-center justify-between px-space-sm py-2 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">dashboard</span><span>Dashboard (ภาพรวม)</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container hover:text-on-surface transition-all" data-path="my-tasks" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">task_alt</span><span>งานของฉัน (My Tasks)</span></div><span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-high text-on-surface">5</span></a><a aria-current="page" class="flex items-center justify-between px-space-sm py-2 rounded-xl transition-all bg-primary text-on-primary font-label-lg shadow-[0_1px_2px_rgba(0,33,10,0.08)]" data-path="task-list-kanban" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">view_kanban</span><span>รายการงานทั้งหมด</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container hover:text-on-surface transition-all" data-path="create-task" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">add_task</span><span>สั่งงานใหม่ (Create Task)</span></div><span class="material-symbols-outlined text-primary text-[18px]">bolt</span></a></nav><div class="px-space-sm pt-space-md pb-1"><span class="font-label-sm text-label-sm text-on-surface-variant font-medium uppercase tracking-wider">การกำกับดูแล</span></div><nav class="space-y-1" data-active-classes="bg-primary text-on-primary font-label-lg shadow-[0_1px_2px_rgba(0,33,10,0.08)]"><a class="flex items-center justify-between px-space-sm py-2 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container hover:text-on-surface transition-all" data-path="team-hierarchy" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">account_tree</span><span>ทีมและสมาชิก (Hierarchy)</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container hover:text-on-surface transition-all" data-path="calendar" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span>ปฏิทินกำหนดส่ง</span></div></a><a class="flex items-center justify-between px-space-sm py-2 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container hover:text-on-surface transition-all" data-path="task-approval-center" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">verified</span><span>ศูนย์ตรวจรับงาน</span></div><span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed-variant font-semibold">4</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports-analytics" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">insights</span><span>รายงานและสถิติ</span></div></a></nav><div class="px-space-sm pt-space-md pb-1"><span class="font-label-sm text-label-sm text-on-surface-variant font-medium uppercase tracking-wider">การจัดการระบบ</span></div><nav class="space-y-1" data-active-classes="bg-primary text-on-primary font-label-lg shadow-[0_1px_2px_rgba(0,33,10,0.08)]"><a class="flex items-center justify-between px-space-sm py-2 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container hover:text-on-surface transition-all" data-path="member-approvals" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">how_to_reg</span><span>อนุมัติสมาชิกใหม่</span></div><span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-error-container text-on-error-container font-bold animate-pulse">2 ใหม่</span></a><a class="flex items-center justify-between px-space-sm py-2 rounded-xl text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">settings</span><span>ตั้งค่าระบบ</span></div></a></nav></div></div><div class="px-space-md pt-space-sm"><div class="p-space-sm rounded-xl bg-surface-container flex items-center justify-between"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[18px] text-primary">shield_with_heart</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface font-semibold">Ant Security</span><span class="font-body-sm text-body-sm text-on-surface-variant text-[10px]">Data Protected</span></div></div><span class="material-symbols-outlined text-[16px] text-on-surface-variant">lock</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-gutter"><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="relative w-full"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span><input class="w-full pl-10 pr-space-md py-2 h-10 rounded-xl bg-surface-container-lowest text-on-surface placeholder:text-on-surface-variant/60 font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-[0_1px_2px_rgba(0,33,10,0.04)] transition-all" placeholder="ค้นหารหัสงาน, ชื่องาน, หรือสมาชิก..." type="text"/></div></div><div class="flex items-center gap-space-md"><div class="hidden xl:flex items-center p-1 rounded-xl bg-surface-container shadow-[0_1px_2px_rgba(0,33,10,0.04)]"><span class="font-label-sm text-label-sm text-on-surface-variant px-2 flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">switch_account</span>สลับมุมมอง:</span><div class="flex items-center gap-1"><button class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-[0_1px_2px_rgba(0,33,10,0.04)]" type="button"><span class="material-symbols-outlined text-primary text-[16px]">crown</span><span>👑 ราชินีมด</span></button><button class="flex items-center gap-1 px-2 py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-sm text-label-sm transition-colors" type="button"><span>🐜 หัวหน้ามด</span></button><button class="flex items-center gap-1 px-2 py-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface font-label-sm text-label-sm transition-colors" type="button"><span>🐜 มดงาน</span></button></div></div><div class="relative"><button class="p-2 rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors relative flex items-center justify-center" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 min-w-[18px] h-[18px] flex items-center justify-center px-1 rounded-full bg-error text-on-error font-label-sm text-label-sm text-[10px] font-bold ring-2 ring-surface">3</span></button></div><div class="h-6 w-px bg-surface-container-highest"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col text-right"><span class="font-label-lg text-label-lg text-on-surface leading-tight">คุณวรินทร</span><span class="font-label-sm text-label-sm text-primary font-medium flex items-center justify-end gap-0.5"><span class="material-symbols-outlined text-[14px]">crown</span>ราชินีมด (ผู้บริหาร)</span></div><div class="relative"><img alt="Profile" class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDraSQMOblKRgdHDtIOs77-LBhkcuFA9ZzfQ-B1QaXMoO2vTzIwmC1J2h9KV05djMOxiwIa6HSTegZQZWuRXWJT3lbPh0tv1b42wrXS9VcVovCTmcD_6J8u5rnaFFFCaiGtErIMUf3sEShxMDVANegNyXsorceB9jdwCjJLiFfnbkAj2QdMx-bDyH4jB-OQConHakNmASaJBeIej6IcQi5ZDXMqb99whHIVNPjJKt57XSsDmE6w7VCqgw"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface"></span></div></div></div></header><main class="relative pt-16 bg-surface min-h-[calc(100vh-4rem)] w-full px-gutter py-space-lg"><div class="flex flex-col w-full gap-space-lg pb-space-xl">
+<!-- Top Command & Action Suite -->
+<div class="flex flex-col gap-space-md"><div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md"><div><div class="flex items-center gap-1.5 text-primary font-label-md text-label-md mb-1"><span class="material-symbols-outlined text-[16px]">hive</span><span class="font-medium">Sprint 14</span></div><h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-bold">กระดานติดตามงาน (Tasks)</h1><p class="font-body-md text-body-md text-on-surface-variant mt-0.5">ติดตามและอัปเดตสถานะงานทั้งหมดในรังมด</p></div><div class="flex items-center gap-space-sm"><div class="flex items-center p-1 rounded-xl bg-surface-container gap-1"><button class="px-3.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" id="btn-view-kanban" onclick="switchView('kanban')" type="button"><span class="material-symbols-outlined text-[18px] align-middle mr-1">view_kanban</span>บอร์ด</button><button class="px-3.5 py-1.5 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md shadow-sm transition-all" id="btn-view-table" onclick="switchView('table')" type="button"><span class="material-symbols-outlined text-[18px] align-middle mr-1">table_rows</span>รายการ (List)</button></div><button class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md shadow-sm transition-all" onclick="openCreateModal()" type="button"><span class="material-symbols-outlined text-[18px]">add</span><span>สร้างงานใหม่</span></button></div></div><div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm"><div class="relative flex-1"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span><input class="w-full pl-9 pr-4 py-2 h-10 rounded-xl bg-surface-container-low text-on-surface placeholder:text-on-surface-variant/50 font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all" id="task-filter-input" onkeyup="filterCards()" placeholder="ค้นหางาน หรือผู้รับผิดชอบ..." type="text"/></div><div class="flex items-center gap-space-sm"><select class="h-10 px-3 rounded-xl bg-surface-container-low text-on-surface font-label-sm text-label-sm focus:outline-none cursor-pointer"><option value="">ทุกความสำคัญ</option><option value="urgent">ด่วนมาก</option><option value="normal">ปกติ</option></select><select class="h-10 px-3 rounded-xl bg-surface-container-low text-on-surface font-label-sm text-label-sm focus:outline-none cursor-pointer"><option value="">ทุกฝ่ายงาน</option><option value="tech">โยธาและสถาปัตย์</option><option value="ops">เสบียงและขนส่ง</option><option value="qa">วิจัยและปลอดภัย</option></select></div></div></div>
+<!-- VIEW 1: KANBAN BOARD CONTAINER -->
+<div class="w-full" id="view-kanban"><div class="flex flex-col gap-4 w-full"><div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-surface-container overflow-hidden divide-y divide-surface-container"><div class="p-4 hover:bg-surface-container-low/50 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer" onclick="openTaskDetail('MOD-088', 'ขยายแนวคลังอาหารชั้นใต้ดิน B-4', 'ด่วนมาก', 'กำลังขุดเจาะชั้นหินแกรนิต พร้อมเสริมคานไม้ยางพารา', 'สมชาย มดงานโยธา', '24 เม.ย.', 65, 3, 8, true)"><div class="flex items-start md:items-center gap-3.5 flex-1 min-w-0"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold shrink-0"><span class="w-2 h-2 rounded-full bg-primary"></span>กำลังทำ</span><div class="min-w-0 flex-1"><div class="flex items-center gap-2 flex-wrap mb-0.5"><span class="font-bold text-primary font-body-sm text-[12px]">#MOD-088</span><h4 class="font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors font-semibold truncate">ขยายแนวคลังอาหารชั้นใต้ดิน B-4</h4><span class="px-2 py-0.5 rounded-md bg-error-container text-on-error-container font-label-sm text-label-sm font-medium">ด่วนมาก</span><span class="text-error text-[11px] font-medium flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">error</span>เลยกำหนด</span></div><p class="font-body-sm text-body-sm text-on-surface-variant truncate">ระดมมดงาน 40 นายเข้าประจำจุดอุโมงค์ตะวันออก กำลังขุดเจาะชั้นหินแกรนิต</p></div></div><div class="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-surface-container"><div class="flex items-center gap-2 min-w-[110px]"><div class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center text-[11px] font-semibold">สช</div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface font-medium">สมชาย</span><span class="text-[10px] text-on-surface-variant">โยธาและสถาปัตย์</span></div></div><div class="flex flex-col w-28 gap-1"><div class="flex items-center justify-between text-[11px] text-on-surface-variant"><span class="font-medium text-primary">65%</span><span class="text-error font-medium">24 เม.ย.</span></div><div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full bg-primary rounded-full" style="width: 65%"></div></div></div><button class="px-3.5 py-1.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="event.stopPropagation(); openTaskDetail('MOD-088', 'ขยายแนวคลังอาหารชั้นใต้ดิน B-4', 'ด่วนมาก', 'กำลังขุดเจาะชั้นหินแกรนิต พร้อมเสริมคานไม้ยางพารา', 'สมชาย มดงานโยธา', '24 เม.ย.', 65, 3, 8, true);" type="button">ดูรายละเอียด</button></div></div><div class="p-4 hover:bg-surface-container-low/50 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer bg-primary-fixed/10" onclick="openTaskDetail('MOD-077', 'ส่งมอบโครงสร้างรังอนุบาลตัวอ่อน', 'ด่วนมาก', 'วิศวกรโครงสร้างส่งมอบแบบและงานก่อสร้าง พร้อมผลทดสอบอุณหภูมิ', 'สถาพร หัวหน้าช่างรัง', '26 เม.ย.', 95, 6, 12, false)"><div class="flex items-start md:items-center gap-3.5 flex-1 min-w-0"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold shrink-0"><span class="material-symbols-outlined text-[13px]">rate_review</span>รอตรวจรับ</span><div class="min-w-0 flex-1"><div class="flex items-center gap-2 flex-wrap mb-0.5"><span class="font-bold text-primary font-body-sm text-[12px]">#MOD-077</span><h4 class="font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors font-semibold truncate">ส่งมอบโครงสร้างรังอนุบาลตัวอ่อน</h4><span class="px-2 py-0.5 rounded-md bg-error-container text-on-error-container font-label-sm text-label-sm font-medium">ด่วนมาก</span></div><p class="font-body-sm text-body-sm text-on-surface-variant truncate">รายงานผลอุณหภูมิ 7 วันย้อนหลัง พร้อมเอกสารรับรองความปลอดภัยโครงสร้าง</p></div></div><div class="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-surface-container"><div class="flex items-center gap-2 min-w-[110px]"><div class="w-7 h-7 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center text-[11px] font-semibold">สภ</div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface font-medium">สถาพร</span><span class="text-[10px] text-on-surface-variant">หัวหน้าช่างรัง</span></div></div><div class="flex flex-col w-28 gap-1"><div class="flex items-center justify-between text-[11px] text-on-surface-variant"><span class="font-medium text-primary">95%</span><span>26 เม.ย.</span></div><div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full bg-primary rounded-full" style="width: 95%"></div></div></div><button class="px-4 py-1.5 rounded-xl bg-primary text-on-primary hover:bg-primary-container font-label-sm text-label-sm font-semibold shadow-sm transition-colors" onclick="event.stopPropagation(); approveTask('MOD-077');" type="button">ตรวจรับงาน</button></div></div><div class="p-4 hover:bg-surface-container-low/50 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer" onclick="openTaskDetail('MOD-093', 'พัฒนาระบบสื่อสารด้วยฟีโรโมน V2.4', 'ด่วน', 'อัปเกรดความถี่เสารับสัญญาณทั่วรังเพื่อลดทอนสัญญาณรบกวน', 'วิเชียร มดวิจัย', '2 พ.ค.', 40, 5, 4, false)"><div class="flex items-start md:items-center gap-3.5 flex-1 min-w-0"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold shrink-0"><span class="w-2 h-2 rounded-full bg-primary"></span>กำลังทำ</span><div class="min-w-0 flex-1"><div class="flex items-center gap-2 flex-wrap mb-0.5"><span class="font-bold text-primary font-body-sm text-[12px]">#MOD-093</span><h4 class="font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors font-semibold truncate">พัฒนาระบบสื่อสารด้วยฟีโรโมน V2.4</h4><span class="px-2 py-0.5 rounded-md bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-medium">ด่วน</span></div><p class="font-body-sm text-body-sm text-on-surface-variant truncate">อัปเกรดความถี่เสารับสัญญาณเพื่อลดทอนสัญญาณรบกวนบริเวณทางเชื่อม</p></div></div><div class="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-surface-container"><div class="flex items-center gap-2 min-w-[110px]"><div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-on-surface text-[11px] font-semibold">วช</div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface font-medium">วิเชียร</span><span class="text-[10px] text-on-surface-variant">วิจัยและปลอดภัย</span></div></div><div class="flex flex-col w-28 gap-1"><div class="flex items-center justify-between text-[11px] text-on-surface-variant"><span class="font-medium text-primary">40%</span><span>2 พ.ค.</span></div><div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full bg-primary rounded-full" style="width: 40%"></div></div></div><button class="px-3.5 py-1.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="event.stopPropagation(); openTaskDetail('MOD-093', 'พัฒนาระบบสื่อสารด้วยฟีโรโมน V2.4', 'ด่วน', 'อัปเกรดความถี่เสารับสัญญาณทั่วรังเพื่อลดทอนสัญญาณรบกวน', 'วิเชียร มดวิจัย', '2 พ.ค.', 40, 5, 4, false);" type="button">ดูรายละเอียด</button></div></div><div class="p-4 hover:bg-surface-container-low/50 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer" onclick="openTaskDetail('MOD-082', 'รายงานบัญชีคลังเมล็ดพันธุ์ประจำฤดู', 'ปกติ', 'รวบรวมตัวเลขเสบียงสุทธิและวิเคราะห์ความพอเพียงช่วงหน้าแล้ง', 'นุชนาถ สารบรรณ', '27 เม.ย.', 90, 2, 2, false)"><div class="flex items-start md:items-center gap-3.5 flex-1 min-w-0"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold shrink-0"><span class="material-symbols-outlined text-[13px]">rate_review</span>รอตรวจรับ</span><div class="min-w-0 flex-1"><div class="flex items-center gap-2 flex-wrap mb-0.5"><span class="font-bold text-primary font-body-sm text-[12px]">#MOD-082</span><h4 class="font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors font-semibold truncate">รายงานบัญชีคลังเมล็ดพันธุ์ประจำฤดู</h4><span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface font-label-sm text-label-sm font-medium">ปกติ</span></div><p class="font-body-sm text-body-sm text-on-surface-variant truncate">รวบรวมตัวเลขเสบียงสุทธิและวิเคราะห์ความพอเพียงช่วงหน้าแล้ง</p></div></div><div class="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-surface-container"><div class="flex items-center gap-2 min-w-[110px]"><div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-on-surface text-[11px] font-semibold">นช</div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface font-medium">นุชนาถ</span><span class="text-[10px] text-on-surface-variant">เสบียงและขนส่ง</span></div></div><div class="flex flex-col w-28 gap-1"><div class="flex items-center justify-between text-[11px] text-on-surface-variant"><span class="font-medium text-primary">90%</span><span>27 เม.ย.</span></div><div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full bg-primary rounded-full" style="width: 90%"></div></div></div><button class="px-3.5 py-1.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="event.stopPropagation(); approveTask('MOD-082');" type="button">ตรวจรับ</button></div></div><div class="p-4 hover:bg-surface-container-low/50 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer" onclick="openTaskDetail('MOD-101', 'จัดซื้อใบไม้เรดวู้ดเกรดพรีเมียม', 'ด่วนมาก', 'กำลังจัดหาซัพพลายเออร์ใหม่ 3 รายเพื่อเปรียบเทียบราคา', 'สมศรี มดจัดซื้อ', '30 เม.ย.', 0, 1, 3, false)"><div class="flex items-start md:items-center gap-3.5 flex-1 min-w-0"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold shrink-0"><span class="w-2 h-2 rounded-full bg-outline"></span>ยังไม่เริ่ม</span><div class="min-w-0 flex-1"><div class="flex items-center gap-2 flex-wrap mb-0.5"><span class="font-bold text-primary font-body-sm text-[12px]">#MOD-101</span><h4 class="font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors font-semibold truncate">จัดซื้อใบไม้เรดวู้ดเกรดพรีเมียม</h4><span class="px-2 py-0.5 rounded-md bg-error-container text-on-error-container font-label-sm text-label-sm font-medium">ด่วนมาก</span></div><p class="font-body-sm text-body-sm text-on-surface-variant truncate">จัดหาซัพพลายเออร์ 3 เจ้า นำตัวอย่างเข้าวิเคราะห์ความชื้น</p></div></div><div class="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-surface-container"><div class="flex items-center gap-2 min-w-[110px]"><div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-on-surface text-[11px] font-semibold">สม</div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface font-medium">สมศรี</span><span class="text-[10px] text-on-surface-variant">มดจัดซื้อ</span></div></div><div class="flex flex-col w-28 gap-1"><div class="flex items-center justify-between text-[11px] text-on-surface-variant"><span class="font-medium text-on-surface-variant">0%</span><span>30 เม.ย.</span></div><div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full bg-outline rounded-full w-0"></div></div></div><button class="px-3.5 py-1.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="event.stopPropagation(); openTaskDetail('MOD-101', 'จัดซื้อใบไม้เรดวู้ดเกรดพรีเมียม', 'ด่วนมาก', 'กำลังจัดหาซัพพลายเออร์ใหม่ 3 รายเพื่อเปรียบเทียบราคา', 'สมศรี มดจัดซื้อ', '30 เม.ย.', 0, 1, 3, false);" type="button">ดูรายละเอียด</button></div></div><div class="p-4 hover:bg-surface-container-low/50 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer" onclick="openTaskDetail('MOD-106', 'สำรวจอุโมงค์ระบายอากาศห้องราชินี', 'ปกติ', 'ตรวจสอบการไหลเวียนของออกซิเจนและระดับก๊าซคาร์บอนไดออกไซด์', 'กิตติ ช่างสำรวจ', '5 พ.ค.', 0, 4, 1, false)"><div class="flex items-start md:items-center gap-3.5 flex-1 min-w-0"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-semibold shrink-0"><span class="w-2 h-2 rounded-full bg-outline"></span>ยังไม่เริ่ม</span><div class="min-w-0 flex-1"><div class="flex items-center gap-2 flex-wrap mb-0.5"><span class="font-bold text-primary font-body-sm text-[12px]">#MOD-106</span><h4 class="font-headline-sm text-headline-sm text-on-surface hover:text-primary transition-colors font-semibold truncate">สำรวจอุโมงค์ระบายอากาศห้องราชินี</h4><span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface font-label-sm text-label-sm font-medium">ปกติ</span></div><p class="font-body-sm text-body-sm text-on-surface-variant truncate">ตรวจสอบการไหลเวียนของออกซิเจนและระดับก๊าซคาร์บอนไดออกไซด์</p></div></div><div class="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-surface-container"><div class="flex items-center gap-2 min-w-[110px]"><div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-on-surface text-[11px] font-semibold">กต</div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface font-medium">กิตติ</span><span class="text-[10px] text-on-surface-variant">ช่างสำรวจ</span></div></div><div class="flex flex-col w-28 gap-1"><div class="flex items-center justify-between text-[11px] text-on-surface-variant"><span class="font-medium text-on-surface-variant">0%</span><span>5 พ.ค.</span></div><div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full bg-outline rounded-full w-0"></div></div></div><button class="px-3.5 py-1.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="event.stopPropagation(); openTaskDetail('MOD-106', 'สำรวจอุโมงค์ระบายอากาศห้องราชินี', 'ปกติ', 'ตรวจสอบการไหลเวียนของออกซิเจนและระดับก๊าซคาร์บอนไดออกไซด์', 'กิตติ ช่างสำรวจ', '5 พ.ค.', 0, 4, 1, false);" type="button">ดูรายละเอียด</button></div></div><div class="p-4 hover:bg-surface-container-low/50 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer opacity-80" onclick="openTaskDetail('MOD-065', 'ซ่อมแซมกำแพงดินแนวชายแดน', 'ปกติ', 'ยาแนวช่องดินและเสริมความแข็งแรงของรากไม้รับแรงกระแทก', 'ประยุทธ ช่างดิน', '20 เม.ย.', 100, 4, 7, false)"><div class="flex items-start md:items-center gap-3.5 flex-1 min-w-0"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold shrink-0"><span class="material-symbols-outlined text-[13px] text-primary">done</span>เสร็จสมบูรณ์</span><div class="min-w-0 flex-1"><div class="flex items-center gap-2 flex-wrap mb-0.5"><span class="font-bold text-on-surface-variant font-body-sm text-[12px]">#MOD-065</span><h4 class="font-headline-sm text-headline-sm text-on-surface-variant line-through hover:text-primary transition-colors font-semibold truncate">ซ่อมแซมกำแพงดินแนวชายแดน</h4><span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface font-label-sm text-label-sm font-medium">ปกติ</span></div><p class="font-body-sm text-body-sm text-on-surface-variant truncate">ยาแนวช่องดินและเสริมความแข็งแรงของรากไม้รับแรงกระแทก</p></div></div><div class="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-surface-container"><div class="flex items-center gap-2 min-w-[110px]"><div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-on-surface text-[11px] font-semibold">ปย</div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface font-medium">ประยุทธ</span><span class="text-[10px] text-on-surface-variant">ช่างดิน</span></div></div><div class="flex flex-col w-28 gap-1"><div class="flex items-center justify-between text-[11px] text-on-surface-variant"><span class="font-medium text-primary">100%</span><span>20 เม.ย.</span></div><div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full bg-primary rounded-full" style="width: 100%"></div></div></div><button class="px-3.5 py-1.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="event.stopPropagation(); openTaskDetail('MOD-065', 'ซ่อมแซมกำแพงดินแนวชายแดน', 'ปกติ', 'ยาแนวช่องดินและเสริมความแข็งแรงของรากไม้รับแรงกระแทก', 'ประยุทธ ช่างดิน', '20 เม.ย.', 100, 4, 7, false);" type="button">ดูรายละเอียด</button></div></div><div class="p-4 hover:bg-surface-container-low/50 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4 cursor-pointer opacity-80" onclick="openTaskDetail('MOD-058', 'ติดตั้งระบบตรวจวัดความชื้นเซ็นเซอร์', 'ปกติ', 'ติดตั้งเสร็จสมบูรณ์ 16 จุด เชื่อมต่อแดชบอร์ดเรียบร้อย', 'อนันต์ ช่างเทคนิค', '18 เม.ย.', 100, 1, 2, false)"><div class="flex items-start md:items-center gap-3.5 flex-1 min-w-0"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold shrink-0"><span class="material-symbols-outlined text-[13px] text-primary">done</span>เสร็จสมบูรณ์</span><div class="min-w-0 flex-1"><div class="flex items-center gap-2 flex-wrap mb-0.5"><span class="font-bold text-on-surface-variant font-body-sm text-[12px]">#MOD-058</span><h4 class="font-headline-sm text-headline-sm text-on-surface-variant line-through hover:text-primary transition-colors font-semibold truncate">ติดตั้งระบบตรวจวัดความชื้นเซ็นเซอร์</h4><span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface font-label-sm text-label-sm font-medium">ปกติ</span></div><p class="font-body-sm text-body-sm text-on-surface-variant truncate">ติดตั้งเสร็จสมบูรณ์ 16 จุด เชื่อมต่อแดชบอร์ดตรวจจับเรียบร้อย</p></div></div><div class="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-surface-container"><div class="flex items-center gap-2 min-w-[110px]"><div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-on-surface text-[11px] font-semibold">อน</div><div class="flex flex-col"><span class="font-label-md text-label-md text-on-surface font-medium">อนันต์</span><span class="text-[10px] text-on-surface-variant">ช่างเทคนิค</span></div></div><div class="flex flex-col w-28 gap-1"><div class="flex items-center justify-between text-[11px] text-on-surface-variant"><span class="font-medium text-primary">100%</span><span>18 เม.ย.</span></div><div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full bg-primary rounded-full" style="width: 100%"></div></div></div><button class="px-3.5 py-1.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" onclick="event.stopPropagation(); openTaskDetail('MOD-058', 'ติดตั้งระบบตรวจวัดความชื้นเซ็นเซอร์', 'ปกติ', 'ติดตั้งเสร็จสมบูรณ์ 16 จุด เชื่อมต่อแดชบอร์ดเรียบร้อย', 'อนันต์ ช่างเทคนิค', '18 เม.ย.', 100, 1, 2, false);" type="button">ดูรายละเอียด</button></div></div></div><div class="p-4 bg-surface-container-low rounded-xl flex flex-col sm:flex-row items-center justify-between gap-3 text-body-sm text-on-surface-variant"><div>แสดง 7 จาก 41 รายการงานในสปรินต์นี้</div><div class="flex items-center gap-1"><button class="px-3 py-1 rounded-lg bg-surface-container-lowest text-on-surface disabled:opacity-40" type="button">ย้อนกลับ</button><button class="px-3 py-1 rounded-lg bg-primary text-on-primary font-bold" type="button">1</button><button class="px-3 py-1 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container" type="button">2</button><button class="px-3 py-1 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container" type="button">3</button><button class="px-3 py-1 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container" type="button">ถัดไป</button></div></div></div></div>
+<!-- VIEW 2: TABLE VIEW CONTAINER (Hidden by default, switched via JS) -->
+<div class="w-full hidden" id="view-table">
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-4">รหัสงาน</th>
+<th class="py-3 px-4">ชื่องานและรายละเอียด</th>
+<th class="py-3 px-4">สถานะ</th>
+<th class="py-3 px-4">ความสำคัญ</th>
+<th class="py-3 px-4">ความคืบหน้า</th>
+<th class="py-3 px-4">ผู้รับผิดชอบ</th>
+<th class="py-3 px-4">กำหนดส่ง</th>
+<th class="py-3 px-4 text-center">การจัดการ</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-sm text-body-sm text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="openTaskDetail('MOD-077', 'ส่งมอบโครงสร้างรังอนุบาลตัวอ่อน เฟส 1', 'ด่วนมาก', 'วิศวกรโครงสร้างส่งมอบแบบและงานก่อสร้าง พร้อมผลทดสอบอุณหภูมิคงที่ 28.5C', 'สถาพร หัวหน้าช่างรัง', '26 เม.ย. 2568', 95, 6, 12, false)">
+<td class="py-3.5 px-4 font-bold text-primary">#MOD-077</td>
+<td class="py-3.5 px-4">
+<div class="font-headline-sm text-headline-sm text-on-surface">ส่งมอบโครงสร้างรังอนุบาลตัวอ่อน เฟส 1</div>
+<div class="text-on-surface-variant text-body-sm line-clamp-1">แนบรายงานอุณหภูมิ 7 วันย้อนหลัง พร้อมเอกสารรับรอง</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">rate_review</span> รอตรวจรับงาน
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">ด่วนมาก</span>
+</td>
+<td class="py-3.5 px-4 min-w-[120px]">
+<div class="flex items-center justify-between text-[11px] mb-1 font-semibold">
+<span>95%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 95%"></div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-bold text-xs">🐜</div>
+<div>
+<div class="font-label-md text-label-md">สถาพร</div>
+<div class="text-[10px] text-on-surface-variant">หัวหน้าช่างรัง</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-on-surface-variant font-medium">26 เม.ย. 2568</td>
+<td class="py-3.5 px-4 text-center">
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="openTaskDetail('MOD-088', 'ขยายแนวคลังอาหารชั้นใต้ดิน B-4 ป้องกันน้ำหลาก', 'ด่วนมาก', 'กำลังขุดเจาะชั้นหินแกรนิต พร้อมเสริมคานไม้ยางพารา', 'สมชาย มดงานโยธา', '24 เม.ย. 2568', 65, 3, 8, true)">
+<td class="py-3.5 px-4 font-bold text-on-surface">#MOD-088</td>
+<td class="py-3.5 px-4">
+<div class="font-headline-sm text-headline-sm text-on-surface">ขยายแนวคลังอาหารชั้นใต้ดิน B-4 ป้องกันน้ำหลาก</div>
+<div class="text-on-surface-variant text-body-sm line-clamp-1">ระดมมดงาน 40 นายเข้าประจำจุดอุโมงค์ตะวันออกเฉียงใต้</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm font-semibold">
+                  กำลังดำเนินการ
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex flex-col gap-1">
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold w-fit">ด่วนมาก</span>
+<span class="text-error font-bold text-[10px] flex items-center gap-0.5"><span class="material-symbols-outlined text-[11px]">alarm</span>เลยกำหนด</span>
+</div>
+</td>
+<td class="py-3.5 px-4 min-w-[120px]">
+<div class="flex items-center justify-between text-[11px] mb-1 font-semibold">
+<span>65%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 65%"></div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-xs">🐜</div>
+<div>
+<div class="font-label-md text-label-md">สมชาย</div>
+<div class="text-[10px] text-on-surface-variant">มดงานโยธา</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-error font-bold">24 เม.ย. 2568</td>
+<td class="py-3.5 px-4 text-center">
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="openTaskDetail('MOD-101', 'จัดซื้อใบไม้เรดวู้ดเกรดพรีเมียมสำหรับรังโซนเหนือ', 'ด่วนมาก', 'กำลังจัดหาซัพพลายเออร์ใหม่ 3 รายเพื่อเปรียบเทียบราคา', 'คุณสมศรี มดงานจัดซื้อ', '30 เม.ย. 2568', 0, 1, 3, false)">
+<td class="py-3.5 px-4 font-bold text-on-surface">#MOD-101</td>
+<td class="py-3.5 px-4">
+<div class="font-headline-sm text-headline-sm text-on-surface">จัดซื้อใบไม้เรดวู้ดเกรดพรีเมียมสำหรับรังโซนเหนือ</div>
+<div class="text-on-surface-variant text-body-sm line-clamp-1">จัดหาซัพพลายเออร์ 3 เจ้า นำตัวอย่างเข้าวิเคราะห์ความชื้น</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">
+                  ยังไม่เริ่ม
+                </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm font-bold">ด่วน</span>
+</td>
+<td class="py-3.5 px-4 min-w-[120px]">
+<div class="flex items-center justify-between text-[11px] mb-1 font-semibold">
+<span>0%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-outline rounded-full w-0"></div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container text-on-surface flex items-center justify-center font-bold text-xs">สม</div>
+<div>
+<div class="font-label-md text-label-md">สมศรี</div>
+<div class="text-[10px] text-on-surface-variant">มดจัดซื้อ</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap text-on-surface-variant">30 เม.ย. 2568</td>
+<td class="py-3.5 px-4 text-center">
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination Footer -->
+<div class="p-4 bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-3 text-body-sm text-on-surface-variant">
+<div>แสดง 1 ถึง 10 จาก 41 รายการงาน</div>
+<div class="flex items-center gap-1">
+<button class="px-3 py-1 rounded-lg bg-surface-container-lowest text-on-surface disabled:opacity-40">ย้อนกลับ</button>
+<button class="px-3 py-1 rounded-lg bg-primary text-on-primary font-bold">1</button>
+<button class="px-3 py-1 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container">2</button>
+<button class="px-3 py-1 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container">3</button>
+<button class="px-3 py-1 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container">ถัดไป</button>
+</div>
+</div>
+</div>
+</div>
+<!-- VIEW 3: TIMELINE CALENDAR SUMMARY (Placeholder/Mini View) -->
+<div class="w-full hidden" id="view-timeline">
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-lg text-headline-lg text-on-surface">ตารางกำหนดส่งมอบงานประจำสัปดาห์ (Week 17)</h3>
+<span class="font-label-sm text-label-sm px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-bold">เมษายน - พฤษภาคม 2568</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-space-sm">
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="font-label-md text-label-md text-on-surface-variant">จันทร์ 21 เม.ย.</div>
+<div class="p-2 rounded-lg bg-surface-container-lowest shadow-sm text-body-sm">
+<span class="text-primary font-bold">#MOD-065</span> ซ่อมแซมกำแพงดิน (เสร็จแล้ว)
+          </div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-2 ring-1 ring-error/30">
+<div class="font-label-md text-label-md text-error font-bold flex items-center justify-between">
+<span>พฤหัสบดี 24 เม.ย.</span>
+<span class="material-symbols-outlined text-[14px]">warning</span>
+</div>
+<div class="p-2 rounded-lg bg-error-container text-on-error-container shadow-sm text-body-sm font-semibold">
+<span>#MOD-088</span> ขยายแนวคลังอาหาร (เลยกำหนด 1 วัน)
+          </div>
+</div>
+<div class="p-space-sm rounded-xl bg-primary-fixed/20 flex flex-col gap-2 ring-1 ring-primary/40">
+<div class="font-label-md text-label-md text-primary font-bold">เสาร์ 26 เม.ย. (วันนี้)</div>
+<div class="p-2 rounded-lg bg-surface-container-lowest shadow-sm text-body-sm">
+<span class="text-primary font-bold">#MOD-077</span> รอตรวจรับรังอนุบาล
+          </div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="font-label-md text-label-md text-on-surface-variant">จันทร์ 28 เม.ย.</div>
+<div class="p-2 rounded-lg bg-surface-container-lowest shadow-sm text-body-sm">
+<span class="text-primary font-bold">#MOD-099</span> ขอใบอนุญาตมดดำ
+          </div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="font-label-md text-label-md text-on-surface-variant">พุธ 30 เม.ย.</div>
+<div class="p-2 rounded-lg bg-surface-container-lowest shadow-sm text-body-sm">
+<span class="text-on-surface font-bold">#MOD-101</span> ซื้อใบไม้เรดวู้ด
+          </div>
+</div>
+</div>
+</div>
+</div>
+<!-- SLIDE-OVER TASK DETAIL DRAWER -->
+<div class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0" id="task-drawer">
+<!-- Backdrop Blur -->
+<div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-sm transition-opacity" id="drawer-backdrop" onclick="closeTaskDetail()"></div>
+<div class="absolute inset-y-0 right-0 max-w-full flex pl-10 pointer-events-auto">
+<div class="w-screen max-w-xl bg-surface shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out" id="drawer-panel">
+<!-- Drawer Header -->
+<div class="px-space-lg py- space-md bg-surface-container-low flex items-center justify-between border-b border-surface-container">
+<div class="flex items-center gap-space-xs">
+<span class="px-2.5 py-1 rounded-lg bg-primary/10 text-primary font-headline-sm text-headline-sm font-bold" id="drawer-task-id">#MOD-077</span>
+<span class="px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold" id="drawer-task-priority">ด่วนมาก</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" title="คัดลอกลิงก์งาน" type="button">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors" onclick="closeTaskDetail()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+</div>
+<!-- Drawer Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-space-lg flex flex-col gap-space-lg">
+<!-- Title & Core Description -->
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold leading-tight" id="drawer-task-title">
+              ส่งมอบโครงสร้างรังอนุบาลตัวอ่อน เฟส 1
+            </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 leading-relaxed" id="drawer-task-desc">
+              วิศวกรโครงสร้างส่งมอบแบบและงานก่อสร้าง พร้อมผลทดสอบอุณหภูมิคงที่ 28.5C แนบรายงานอุณหภูมิ 7 วันย้อนหลัง พร้อมเอกสารรับรองความปลอดภัยโครงสร้างคานไม้
+            </p>
+</div>
+<!-- Quick Colony Metas (Grid) -->
+<div class="grid grid-cols-2 gap-space-sm p-space-sm rounded-xl bg-surface-container-low">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">ผู้สั่งงาน (Issuer)</span>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="material-symbols-outlined text-primary text-[18px]">crown</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">คุณวรินทร (ราชินีมด)</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">ผู้รับผิดชอบหลัก (Assignee)</span>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="material-symbols-outlined text-primary text-[18px]">pest_control</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold" id="drawer-assignee">สถาพร หัวหน้าช่างรัง</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">กำหนดส่งมอบ (Due Date)</span>
+<div class="flex items-center gap-1.5 mt-1 text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">event</span>
+<span id="drawer-due-date">26 เม.ย. 2568</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">สถานะตรวจรับ</span>
+<div class="flex items-center gap-1.5 mt-1 text-primary font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>รออนุมัติขั้นสุดท้าย</span>
+</div>
+</div>
+</div>
+<!-- Progress Adjustment Tool -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface">อัปเดตความคืบหน้าของงาน</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold" id="drawer-progress-text">95%</span>
+</div>
+<input class="w-full accent-primary cursor-pointer h-2 bg-surface-container-high rounded-lg appearance-none" id="drawer-slider" max="100" min="0" oninput="updateDrawerProgress(this.value)" type="range" value="95"/>
+<div class="flex justify-between text-[11px] text-on-surface-variant">
+<span>0% (ยังไม่เริ่ม)</span>
+<span>50% (ครึ่งทาง)</span>
+<span>100% (ส่งตรวจงาน)</span>
+</div>
+</div>
+<!-- Deliverables / Attachments Section -->
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<h4 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">attach_file</span>
+<span>เอกสารและหลักฐานการส่งงาน</span>
+</h4>
+<button class="font-label-sm text-label-sm text-primary hover:underline">+ แนบไฟล์เพิ่ม</button>
+</div>
+<div class="flex flex-col gap-2">
+<div class="p-space-xs px-space-sm rounded-xl bg-surface-container-low flex items-center justify-between hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">description</span>
+<div>
+<div class="font-label-md text-label-md text-on-surface">blueprint_nursery_chamber_v2.pdf</div>
+<div class="text-[11px] text-on-surface-variant">4.2 MB • อัปโหลดโดย สถาพร เมื่อวานนี้</div>
+</div>
+</div>
+<button class="p-1 rounded-lg text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[18px]">download</span></button>
+</div>
+<div class="p-space-xs px-space-sm rounded-xl bg-surface-container-low flex items-center justify-between hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">analytics</span>
+<div>
+<div class="font-label-md text-label-md text-on-surface">temperature_log_7days.xlsx</div>
+<div class="text-[11px] text-on-surface-variant">840 KB • รายงานเซ็นเซอร์อัตโนมัติ</div>
+</div>
+</div>
+<button class="p-1 rounded-lg text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[18px]">download</span></button>
+</div>
+</div>
+</div>
+<!-- Timeline Audit Log & Messages -->
+<div class="flex flex-col gap-space-sm">
+<h4 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span>บันทึกการส่งงานและพูดคุย (Discussion &amp; Activity)</span>
+</h4>
+<!-- Message Feed -->
+<div class="flex flex-col gap-3 pl-2 border-l-2 border-surface-container-high">
+<!-- Item 1 -->
+<div class="flex flex-col gap-1 text-body-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">คุณวรินทร (ราชินีมด)</span>
+<span class="text-[11px] text-on-surface-variant">25 เม.ย. 14:20 น.</span>
+</div>
+<p class="text-on-surface-variant bg-surface-container-low p-2.5 rounded-xl">
+                  “ขอให้ตรวจสอบอุณหภูมิห้องตัวอ่อนให้แน่ใจว่าไม่เกิน 29 องศาเซลเซียส ก่อนเปิดใช้งานจริงในวันอาทิตย์นี้”
+                </p>
+</div>
+<!-- Item 2 -->
+<div class="flex flex-col gap-1 text-body-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">สถาพร หัวหน้าช่างรัง</span>
+<span class="text-[11px] text-on-surface-variant">26 เม.ย. 09:15 น.</span>
+</div>
+<p class="text-on-surface-variant bg-surface-container-low p-2.5 rounded-xl">
+                  “ทำการติดตั้งม่านใยแมงมุมกรองความร้อนสองชั้นเรียบร้อยแล้วครับ ตอนนี้อุณหภูมิเฉลี่ยอยู่ที่ 28.3 องศาเซลเซียส พร้อมรับการตรวจรับงานครับ”
+                </p>
+</div>
+</div>
+<!-- Comment Input Box -->
+<div class="mt-2 flex flex-col gap-2">
+<textarea class="w-full p-2.5 rounded-xl bg-surface-container-low text-on-surface placeholder:text-on-surface-variant/50 font-body-sm text-body-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="พิมพ์ข้อความตอบกลับ หรือสั่งการเพิ่มเติม..." rows="2"></textarea>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-primary" type="button"><span class="material-symbols-outlined text-[18px]">alternate_email</span></button>
+<button class="p-1 hover:text-primary" type="button"><span class="material-symbols-outlined text-[18px]">attachment</span></button>
+</div>
+<button class="px-4 py-1.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-all flex items-center gap-1" onclick="sendQuickMessage()" type="button">
+<span>ส่งความเห็น</span>
+<span class="material-symbols-outlined text-[16px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Drawer Fixed Footer Action -->
+<div class="px-space-lg py-space-sm bg-surface-container-low border-t border-surface-container flex items-center justify-between gap-space-sm">
+<button class="px-4 py-2.5 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1" onclick="requestRevision('MOD-077')" type="button">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+<span>ขอแก้ไขงาน (Request Edit)</span>
+</button>
+<button class="px-6 py-2.5 rounded-xl bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg transition-all shadow-md flex items-center gap-1.5" onclick="approveTask('MOD-077')" type="button">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+<span>อนุมัติและตรวจรับเสร็จสมบูรณ์</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- MODAL: สั่งงานใหม่ (Create Task Dialog) -->
+<div class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0 flex items-center justify-center p-4" id="modal-create-task">
+<div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-sm pointer-events-auto" id="modal-backdrop" onclick="closeCreateModal()"></div>
+<div class="relative w-full max-w-2xl bg-surface rounded-2xl shadow-2xl p-space-lg flex flex-col gap-space-md pointer-events-auto z-10 max-h-[921px] overflow-y-auto">
+<div class="flex items-center justify-between border-b border-surface-container pb-space-sm">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-xl bg-primary text-on-primary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-[18px]">add_task</span>
+</div>
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface font-bold">สั่งงานใหม่ในรังมด</h3>
+<p class="text-on-surface-variant font-body-sm text-body-sm">มอบหมายงานและกำหนดผู้รับผิดชอบตามสายบังคับบัญชา</p>
+</div>
+</div>
+<button class="p-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high" onclick="closeCreateModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Create Form Fields -->
+<div class="flex flex-col gap-space-sm">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">หัวข้อหรือชื่องาน *</label>
+<input class="w-full h-10 px-3 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" placeholder="ระบุชื่องานที่ชัดเจน เช่น ขุดเจาะทางเชื่อมคลังเสบียง B2" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">ระดับความเร่งด่วน</label>
+<select class="w-full h-10 px-3 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm cursor-pointer">
+<option value="urgent">🔥 ด่วนมาก (Critical)</option>
+<option value="high">⚡ ด่วน (High)</option>
+<option selected="" value="normal">🌱 ปกติ (Normal)</option>
+<option value="low">☕ ไม่เร่งด่วน</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">กำหนดส่งมอบ (Due Date) *</label>
+<input class="w-full h-10 px-3 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" type="date" value="2025-05-02"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">มอบหมายให้ (Assignee) *</label>
+<select class="w-full h-10 px-3 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm cursor-pointer">
+<option value="ant1">🐜 สมชาย (ฝ่ายโยธา)</option>
+<option value="ant2">🐜 สถาพร (ช่างใหญ่)</option>
+<option value="ant3">🐜 สมศรี (จัดซื้อ)</option>
+<option value="ant4">🐜 วิเชียร (วิจัย)</option>
+<option value="lead1">👑 สร้อยมุก (หัวหน้ามด)</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">สังกัดฝ่าย / สปรินต์</label>
+<select class="w-full h-10 px-3 rounded-xl bg-surface-container-low text-on-surface font-label-md text-label-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm cursor-pointer">
+<option>ฝ่ายโยธาและสถาปัตย์</option>
+<option>ฝ่ายเสบียงและขนส่ง</option>
+<option>ฝ่ายวิจัยฟีโรโมน</option>
+<option>ฝ่ายความมั่นคงรอบรัง</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1">รายละเอียดและข้อกำหนดส่งมอบ</label>
+<textarea class="w-full p-3 rounded-xl bg-surface-container-low text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary shadow-sm" placeholder="ระบุสิ่งที่ต้องการตรวจรับ เช่น รูปถ่ายหน้างาน ผลทดสอบ หรือเอกสารแนบ..." rows="3"></textarea>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center justify-end gap-space-xs pt-space-xs border-t border-surface-container">
+<button class="px-4 py-2 rounded-xl text-on-surface-variant hover:bg-surface-container font-label-md text-label-md" onclick="closeCreateModal()" type="button">ยกเลิก</button>
+<button class="px-5 py-2 rounded-xl bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg shadow-sm" onclick="submitNewTask()" type="button">บันทึกและจ่ายงานทันที</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Vanilla JS Interactions for Perspective Switching and Drawer Previews -->
+<script>
+  function switchView(viewName) {
+    const kanban = document.getElementById('view-kanban');
+    const table = document.getElementById('view-table');
+    const timeline = document.getElementById('view-timeline');
+
+    const btnKanban = document.getElementById('btn-view-kanban');
+    const btnTable = document.getElementById('btn-view-table');
+    const btnTimeline = document.getElementById('btn-view-timeline');
+
+    // Reset visibility
+    kanban.classList.add('hidden');
+    table.classList.add('hidden');
+    if (timeline) timeline.classList.add('hidden');
+
+    // Reset button states
+    [btnKanban, btnTable, btnTimeline].filter(Boolean).forEach(btn => {
+      btn.className = "flex items-center gap-space-xs px-4 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all font-label-md text-label-md whitespace-nowrap";
+    });
+
+    const activeClasses = "flex items-center gap-space-xs px-4 py-2 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md shadow-sm transition-all whitespace-nowrap";
+
+    if (viewName === 'kanban') {
+      kanban.classList.remove('hidden');
+      btnKanban.className = activeClasses;
+    } else if (viewName === 'table') {
+      table.classList.remove('hidden');
+      btnTable.className = activeClasses;
+    } else if (viewName === 'timeline' && timeline && btnTimeline) {
+      timeline.classList.remove('hidden');
+      btnTimeline.className = activeClasses;
+    }
+  }
+
+  function openTaskDetail(id, title, priority, desc, assignee, dueDate, progress, files, comments, isOverdue) {
+    const drawer = document.getElementById('task-drawer');
+    const panel = document.getElementById('drawer-panel');
+
+    document.getElementById('drawer-task-id').innerText = '#' + id;
+    document.getElementById('drawer-task-title').innerText = title;
+    document.getElementById('drawer-task-desc').innerText = desc;
+    document.getElementById('drawer-assignee').innerText = assignee;
+    document.getElementById('drawer-due-date').innerText = dueDate;
+    document.getElementById('drawer-task-priority').innerText = priority;
+    document.getElementById('drawer-progress-text').innerText = progress + '%';
+    document.getElementById('drawer-slider').value = progress;
+
+    drawer.classList.remove('pointer-events-none', 'opacity-0');
+    drawer.classList.add('opacity-100');
+    panel.classList.remove('translate-x-full');
+  }
+
+  function closeTaskDetail() {
+    const drawer = document.getElementById('task-drawer');
+    const panel = document.getElementById('drawer-panel');
+
+    panel.classList.add('translate-x-full');
+    drawer.classList.add('opacity-0');
+    setTimeout(() => {
+      drawer.classList.add('pointer-events-none');
+    }, 300);
+  }
+
+  function updateDrawerProgress(val) {
+    document.getElementById('drawer-progress-text').innerText = val + '%';
+  }
+
+  function openCreateModal() {
+    const modal = document.getElementById('modal-create-task');
+    modal.classList.remove('pointer-events-none', 'opacity-0');
+    modal.classList.add('opacity-100');
+  }
+
+  function closeCreateModal() {
+    const modal = document.getElementById('modal-create-task');
+    modal.classList.add('opacity-0');
+    setTimeout(() => {
+      modal.classList.add('pointer-events-none');
+    }, 200);
+  }
+
+  function submitNewTask() {
+    closeCreateModal();
+    alert('สั่งงานใหม่เรียบร้อยแล้ว! ระบบแจ้งเตือนไปยังมดงานผู้รับผิดชอบเรียบร้อย');
+  }
+
+  function approveTask(taskId) {
+    alert('ราชินีมดตรวจรับงานรหัส ' + taskId + ' เรียบร้อยแล้ว! สถานะอัปเดตเป็น เสร็จสมบูรณ์');
+    closeTaskDetail();
+  }
+
+  function requestRevision(taskId) {
+    alert('ส่งคำขอแก้ไขงาน ' + taskId + ' กลับไปยังผู้รับผิดชอบพร้อมบันทึกความเห็นเรียบร้อยแล้ว');
+    closeTaskDetail();
+  }
+
+  function quickProgress(taskId) {
+    alert('เพิ่มความคืบหน้างาน ' + taskId + ' อีก 10% เรียบร้อยแล้ว');
+  }
+
+  function sendQuickMessage() {
+    alert('ส่งข้อความติดตามงานเรียบร้อยแล้ว');
+  }
+
+  function filterCards() {
+    const query = document.getElementById('task-filter-input').value.toLowerCase();
+    const cards = document.querySelectorAll('#view-kanban .group');
+    cards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+      if (text.includes(query)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+</script></main></div></body></html>
